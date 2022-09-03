@@ -2,6 +2,14 @@
 import { ref } from "vue";
 
 const count = ref(0);
+
+const increment = () => {
+  count.value++;
+};
+
+const decrement = () => {
+  count.value--;
+};
 </script>
 
 <template>
@@ -23,7 +31,7 @@ const count = ref(0);
             text-5xl text-white
             hover:bg-blue-700
           "
-          @click="count--"
+          @click="decrement"
         >
           -
         </button>
@@ -37,7 +45,7 @@ const count = ref(0);
             text-5xl text-white
             hover:bg-blue-700
           "
-          @click="count++"
+          @click="increment"
         >
           +
         </button>
