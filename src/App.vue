@@ -1,32 +1,32 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, reactive, onMounted, computed } from "vue";
 
-const count1 = ref(0);
-const count2 = ref(0);
+const count = reactive({
+  number1: 0,
+  number2: 0,
+});
 
 const increment = (which) => {
   if (which === 1) {
-    count1.value++;
+    count.number1++;
   } else {
-    count2.value++;
+    count.number2++;
   }
 };
 
 const decrement = (which) => {
   if (which === 1) {
-    count1.value--;
+    count.number1--;
   } else {
-    count2.value--;
+    count.number2--;
   }
 };
 
 onMounted(() => {
   console.log("mounted");
-
-  // count.value = 100;
 });
 
-const sum = computed(() => count1.value + count2.value);
+const sum = computed(() => count.number1 + count.number2);
 </script>
 
 <template>
@@ -43,7 +43,7 @@ const sum = computed(() => count1.value + count2.value);
   >
     <div class="bg-white flex-1 max-w-md rounded-xl shadow-xl overflow-hidden">
       <h1 class="text-9xl font-semibold text-center text-gray-800 py-12">
-        {{ count1 }}
+        {{ count.number1 }}
       </h1>
       <div class="flex">
         <button
@@ -79,7 +79,7 @@ const sum = computed(() => count1.value + count2.value);
 
     <div class="bg-white flex-1 max-w-md rounded-xl shadow-xl overflow-hidden">
       <h1 class="text-9xl font-semibold text-center text-gray-800 py-12">
-        {{ count2 }}
+        {{ count.number2 }}
       </h1>
       <div class="flex">
         <button
