@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 const count = ref(0);
 
@@ -10,6 +10,12 @@ const increment = () => {
 const decrement = () => {
   count.value--;
 };
+
+onMounted(() => {
+  console.log("mounted");
+
+  count.value = 100;
+});
 </script>
 
 <template>
